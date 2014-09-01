@@ -24,7 +24,7 @@ __all__ = ['format', 'format_list_marker']
 INITIAL_VALUES = dict(
     negative=('-', ''),
     prefix='',
-    suffix='.',
+    suffix=')',
     range=(float('-inf'), float('inf')),
     fallback='decimal',
     # type and symbols ommited here.
