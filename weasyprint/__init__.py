@@ -86,9 +86,12 @@ class HTML(object):
                     encoding = protocol_encoding
                 if isinstance(source, unicode):
                     encoding = None
-                result = html5lib.parse(
-                    source, treebuilder='lxml', encoding=encoding,
-                    namespaceHTMLElements=False)
+                # M.O. nov 2015
+                # fixed to avoid "__init__() got an unexpected keyword argument 'encoding'"
+                # result = html5lib.parse(
+                #     source, treebuilder='lxml', encoding=encoding,
+                #     namespaceHTMLElements=False)
+                result = html5lib.parse(source, treebuilder='lxml', namespaceHTMLElements=False)
                 assert result
         base_url = find_base_url(result, base_url)
         if hasattr(result, 'getroot'):
